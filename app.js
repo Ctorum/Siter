@@ -14,6 +14,10 @@ const bodyParser = require('body-parser');
         res.send('Essa eh a home!');
     });
 
+    app.get('/brenda_page', (req, res) => {
+        res.sendFile(__dirname + "/outroIndex.html")
+    })
+
 var port = 3000;
 app.listen(port, () => {
     console.log('Iniciado com sucesso!');
