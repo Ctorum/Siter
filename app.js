@@ -6,9 +6,17 @@ const bodyParser = require('body-parser');
     app.use(bodyParser.urlencoded( { extended: false } ));
     app.use(bodyParser.json());
 // Rotas
-    app.get('/', (req, res) => {
+    function rota (folder, archive){
+        app.get(folder, (req, res) => {
+            res.sendFile(__dirname + archive);
+        })
+    }
+
+    /*app.get('/', (req, res) => {
         res.sendFile(__dirname + "/index.html");
-    });
+    });*/
+
+    rota(home, "/index.html");
 
     app.get('/home', (req, res) => {
         res.send('Essa eh a home!');

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+    <html lang="pt_BR">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <title>Covid-19</title>
+            <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+            <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+            <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+            <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+            <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+            <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+            <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+            <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+            <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+            <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+            <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+            <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+            <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+            <link rel="manifest" href="favicon/manifest.json">
+            <meta name="msapplication-TileColor" content="#9400D3">
+            <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+            <meta name="theme-color" content="#9400D3">
+            <link rel="stylesheet" href="css/page style/email.css">
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+        </head>
+    <body>
+        <div class="canto">
+            <!--<div class="volta" style="cursor: pointer;">
+            </div>-->
+        </div>
+        <div class="box1">
+        <div class="container">
+            <h1>Covid-19</h1>
+            <p>Preencha todas as lacunas do formulário para receber dados atualizados do covid-19 por email</p>
+            <form>
+                <span class="msg">Insira seu nome</span>
+                <span class="msge">Insira seu email</span>
+                <input type="text" placeholder="Name" class="txtfld txtName" style="font-family: 'Poppins', sans-serif;">
+                <input type="text" placeholder="Email Address" class="txtfld txtEmail" style="font-family: 'Poppins', sans-serif;">
+                <input type="submit" value="Enter" class="btn" style="font-family: 'Poppins', sans-serif;"><br><br>
+                <div style="text-align: center;">
+                <a href="#" class="section1" style="text-decoration: none; list-style: none;">Vá para baixo</a>
+                </div>
+            </form>
+        </div>
+        </div>
+        <div class="box2">
+            <div class="inf1"><div class="bolder">Casos confirmados</div><br><br></div>
+            <div class="inf1"><div class="bolder">Óbitos confirmados</div><br><br></div>
+            <div class="inf1"><div class="bolder">Municípios Atingidos</div><br><br></div>
+            <div class="inf1"><div class="bolder">População/Muncipíos</div><br><br></div>
+            <div class="inf1"><div class="bolder">Municípios com óbitos</div><br><br></div>
+        </div>
+        <div style="background-color: snow; text-align: center;">
+        <a href="#" class="section2" style="font-weight: bold; text-decoration: none; list-style: none">Vá para o topo</a>
+        </div>
+    
+        <script src="https://unpkg.com/popmotion/dist/popmotion.global.min.js"></script>
+        <script src="js/smoothScrool.js"></script>
+        <script src="js/smtp.js"></script>
+        <script src="js/jquery.js"></script>
+        <script src="js/ajax.js"></script>
+        <script>
+           const botao = () =>{
+
+                const buttonVolta = document.querySelector('.canto');
+
+                buttonVolta.addEventListener('click', () =>{
+                    window.location = "index.html";
+            });
+        }
+           botao();
+        </script>
+        <script>
+            const container = popmotion.styler(document.querySelector('.container'));
+            const formElements = document.querySelector('.inner');
+            const msgPop = popmotion.styler(document.querySelector('.msg'));
+            const msgPopEmail = popmotion.styler(document.querySelector('.msge'));
+
+            const myAnim = popmotion.tween({ 
+                from: { 
+                    scale: .7,
+                    opacity: 0,
+                    y: -300,
+                    x: 0
+                },
+                to: { 
+                    scale: 1,
+                    opacity: 1,
+                    y: 0,
+                    x: 0
+                },
+                duration: 1000
+                })
+            
+            const myAnim2 = popmotion.keyframes({
+                values: [
+                    { y: -50, opacity: 0 },
+                    { y: -20, opacity: 1 },
+                    { y: -20, opacity: 1 },
+                    { y: 0, opacity: 0 },
+                ],
+                times: [0, .2,.8, 1],
+                duration: 3000
+            })
+            
+            const myAnim3 = popmotion.keyframes({
+                values: [
+                    { y: 10, opacity: 0 },
+                    { y: 40, opacity: 1 },
+                    { y: 40, opacity: 1 },
+                    { y: 60, opacity: 0 },
+                ],
+                times: [0, .2,.8, 1],
+                duration: 3000
+            })
+
+            myAnim.start(
+        {
+            update: container.set,
+            complete: () => {myAnim2.start(msgPop.set), myAnim3.start(msgPopEmail.set)}
+        });
+
+            const stylers = Array
+                .from(formElements.children)
+                .map(popmotion.styler); 
+        
+            const animations = Array(stylers.length)
+                .fill(popmotion.spring({ from: 100, to:  0 }));  
+
+            popmotion.stagger(animations, 100)
+                .start((v) => v.forEach((x, i) => stylers[i].set('x', x)));
+        </script>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+.boxes * a{
+    color: yellow;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.boxes {
+    color: white;
+}
+
+.box1 {
+    height: 100vh;
+    padding: 2rem;
+    background-color: lightblue;
+    background-image: url(../../img/mainBackground1.jpg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.box2 p{
+    color: black;
+}
+
+.box2, .box2 ul{
+    height: 100vh;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    background-color: snow;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.Line {
+    margin: 0px;
+    padding: 0px;
+    width: 175px;
+    height: 3px;
+    background-color: black;
+}
+
+.corpo {
+    height: 350px;
+    width: 450px;
+}
+
+.eButton {
+    width: 100px;
+}
+
+.textbox {
+    width: 60%;
+    height: 300px;
+    color: black;
+    background-color: lightgray;
+    border-radius: 10px;
+    border: black solid 1px;
+    outline: none;
+    text-align: left;
+    padding: 20px;
+    transition: 0.12s ease-in-out;
+}

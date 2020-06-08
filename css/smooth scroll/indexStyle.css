@@ -1,0 +1,36 @@
+.boxes * a{
+    color: yellow;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.boxes {
+    color: white;
+}
+
+.box1 {
+    height: 100vh;
+    padding: 2rem;
+    background-color: lightblue;
+    background-image: url(../../img/mainBackground.jpg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.box2 {
+    height: 140vh;
+    padding: 2rem;
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.Line {
+    margin: 0px;
+    padding: 0px;
+    width: 175px;
+    height: 3px;
+    background-color: black;
+}
